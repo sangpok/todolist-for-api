@@ -53,6 +53,18 @@
       "userId": "3c3ac7f5-bdfb-483a-9e9e-e00dc19455c6",
       "name": "힘찬 황소 폴더B",
       "createdAt": 1700908634231
+    },
+    {
+      "id": "996dc7d4-6b93-40a6-a0d9-a9fb6eba0693",
+      "userId": "bf3dea1f-382d-4061-af89-378be81bcdee",
+      "name": "안녕",
+      "createdAt": "2023-11-27T08:03:41.634Z"
+    },
+    {
+      "id": "5236aef5-e401-40b9-a0d1-1c7ed4424b2e",
+      "userId": "bf3dea1f-382d-4061-af89-378be81bcdee",
+      "name": "회사",
+      "createdAt": "2023-11-27T08:07:27.868Z"
     }
   ],
   "todos": [
