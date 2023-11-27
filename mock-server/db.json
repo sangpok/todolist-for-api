@@ -1,0 +1,122 @@
+{
+  "users": [
+    {
+      "id": "bf3dea1f-382d-4061-af89-378be81bcdee",
+      "nickname": "가냘픈 강아지"
+    },
+    {
+      "id": "3c3ac7f5-bdfb-483a-9e9e-e00dc19455c6",
+      "nickname": "힘찬 황소"
+    },
+    {
+      "id": "4e44eb80-8818-4f46-9723-fbb9f8d799e1",
+      "nickname": "어 형이야"
+    },
+    {
+      "id": "5938892b-4124-48d1-bce8-541381b6c228",
+      "nickname": "너그러운 앙고라"
+    },
+    {
+      "id": "ddb681d5-cd24-4a4b-a67f-86c4a393704e",
+      "nickname": "이른 일각고래"
+    },
+    {
+      "id": "209fdf38-c348-4eed-8910-ec4409da1406",
+      "nickname": "거센 재규어"
+    },
+    {
+      "id": "61320ab3-7f4b-430a-ae4b-dc9f4770cca0",
+      "nickname": "스스러운 코끼리"
+    }
+  ],
+  "folders": [
+    {
+      "id": "03c1b658-8d9d-42b3-8c92-48934af1da6a",
+      "userId": "bf3dea1f-382d-4061-af89-378be81bcdee",
+      "name": "가냘픈 강아지 폴더A",
+      "createdAt": 1700908392868
+    },
+    {
+      "id": "14fac7b0-4665-44c3-b2b9-c1f98bee93fa",
+      "userId": "bf3dea1f-382d-4061-af89-378be81bcdee",
+      "name": "가냘픈 강아지 폴더B",
+      "createdAt": 1700908634231
+    },
+    {
+      "id": "15b3f77b-286e-4c57-a7b7-7cd011803dcf",
+      "userId": "3c3ac7f5-bdfb-483a-9e9e-e00dc19455c6",
+      "name": "힘찬 황소 폴더A",
+      "createdAt": 1700908392868
+    },
+    {
+      "id": "a5e571f7-7560-4538-8b05-52e1974dc4d6",
+      "userId": "3c3ac7f5-bdfb-483a-9e9e-e00dc19455c6",
+      "name": "힘찬 황소 폴더B",
+      "createdAt": 1700908634231
+    }
+  ],
+  "todos": [
+    {
+      "id": "3f005c45-3145-4fd3-b6aa-45be75ce87a7",
+      "userId": "bf3dea1f-382d-4061-af89-378be81bcdee",
+      "folderId": "03c1b658-8d9d-42b3-8c92-48934af1da6a",
+      "content": "가냘픈 강아지 폴더A 할일1",
+      "completed": false,
+      "createdAt": 1700908514743
+    },
+    {
+      "id": "47364359-6d5d-4e2a-bec6-cfefea24b6f9",
+      "userId": "bf3dea1f-382d-4061-af89-378be81bcdee",
+      "folderId": "03c1b658-8d9d-42b3-8c92-48934af1da6a",
+      "content": "가냘픈 강아지 폴더A 할일2",
+      "completed": true,
+      "createdAt": 1700908580830
+    },
+    {
+      "id": "986d028c-a475-4c82-9cb0-47ad99bbc24e",
+      "userId": "bf3dea1f-382d-4061-af89-378be81bcdee",
+      "content": "가냘픈 강아지 폴더B 할일1",
+      "completed": true,
+      "createdAt": 1700908674744
+    },
+    {
+      "id": "986d028c-a475-4c82-9cb0-47ad99bbc24e",
+      "userId": "bf3dea1f-382d-4061-af89-378be81bcdee",
+      "content": "가냘픈 강아지 폴더B 할일2",
+      "completed": false,
+      "createdAt": 1700908679818
+    },
+    {
+      "id": "58b8e275-d77d-42c6-bfaa-44dfeed9846e",
+      "userId": "3c3ac7f5-bdfb-483a-9e9e-e00dc19455c6",
+      "folderId": "15b3f77b-286e-4c57-a7b7-7cd011803dcf",
+      "content": "힘찬 황소 폴더A 할일1",
+      "completed": false,
+      "createdAt": 1700908514743
+    },
+    {
+      "id": "43ac12d1-07c1-45f2-9fdd-bf8ab9f4b8cd",
+      "userId": "3c3ac7f5-bdfb-483a-9e9e-e00dc19455c6",
+      "folderId": "15b3f77b-286e-4c57-a7b7-7cd011803dcf",
+      "content": "힘찬 황소 폴더A 할일2",
+      "completed": true,
+      "createdAt": 1700908580830
+    },
+    {
+      "id": "ee75ffc7-c787-4d8c-a236-24a5865dab67",
+      "userId": "3c3ac7f5-bdfb-483a-9e9e-e00dc19455c6",
+      "folderId": "a5e571f7-7560-4538-8b05-52e1974dc4d6",
+      "content": "힘찬 황소 폴더B 할일1",
+      "completed": true,
+      "createdAt": 1700908674744
+    },
+    {
+      "id": "ad2cf27a-ea32-467b-bf97-cb4eed9eed02",
+      "userId": "3c3ac7f5-bdfb-483a-9e9e-e00dc19455c6",
+      "folderId": "a5e571f7-7560-4538-8b05-52e1974dc4d6",
+      "content": "힘찬 황소 폴더B 할일2",
+      "completed": false,
+      "createdAt": 1700908679818
+    }
+  ]
+}

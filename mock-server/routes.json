@@ -1,0 +1,7 @@
+{
+  "/users/:userId": "/users/:userId",
+  "/users/:userId/folders": "/folders?userId=:userId",
+  "/users/:userId/folders/:folderId": "/folders/:folderId",
+  "/users/:userId/folders/:folderId/todos": "/todos?userId=:userId&folderId=:folderId",
+  "/users/:userId/folders/:folderId/todos/:todoId": "/todos/:todoId"
+}
