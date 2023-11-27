@@ -1,54 +1,50 @@
-import { useChangeNickname, useCreateTodoFolder, useTodoFolder } from '@Hooks/index';
-import { UserAuthStore } from '@Store/UserAuthStore';
-import { useSyncExternalStore } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import TodoFolderView from './Components/TodoFolderView';
+import TodoView from './Components/TodoView';
 import UserInfoView from './Components/UserInfoView';
+
+import { UserAuthStore } from '@Store/UserAuthStore';
+
+import type { TodoFolder } from '@Types/Todo';
 
 const MainPage = () => {
   const navigate = useNavigate();
 
   const userAuth = useSyncExternalStore(UserAuthStore.subscribe, UserAuthStore.getSnapshot)!;
 
-  if (!userAuth) {
-    navigate('/');
-  }
+  const [selectedFolder, setSelectedFolder] = useState<TodoFolder | null>(null);
 
-  const { data: folderList, isLoading } = useTodoFolder(userAuth);
-
-  const createFolderMutation = useCreateTodoFolder();
-
-  const handleAddFolder = () => {
-    const folderName = prompt('폴더 이름을 입력해주세용');
-
-    if (!folderName) {
-      return;
+  useEffect(() => {
+    if (!userAuth) {
+      navigate('/');
     }
+  }, [userAuth]);
 
-    createFolderMutation.mutate({ userAuth, folderName });
+  if (!userAuth) return;
+
+  const handleSelectFolder = (todoFolder: TodoFolder) => {
+    setSelectedFolder(todoFolder);
+  };
+
+  const handleDeleteFolder = (todoFolder: TodoFolder) => {
+    if (todoFolder.id === selectedFolder?.id) {
+      setSelectedFolder(null);
+    }
   };
 
   return (
     <div>
       <UserInfoView userAuth={userAuth} />
-
       <br />
-
-      <div>
-        <h2>투두 폴더</h2>
-        {isLoading && <p>투두 폴더를 불러오는 중입니다...</p>}
-        {folderList && (
-          <ul>
-            {folderList
-              .sort((a, b) => +a.createdAt - +b.createdAt)
-              .map((folder) => (
-                <li key={folder.id}>{folder.name}</li>
-              ))}
-          </ul>
-        )}
-        <div>
-          <button onClick={handleAddFolder}>투두 폴더 추가</button>
-        </div>
-      </div>
+      <TodoFolderView
+        userAuth={userAuth}
+        onSelectFolder={handleSelectFolder}
+        onDeleteFolder={handleDeleteFolder}
+      />
+      <br />
+      <TodoView userAuth={userAuth} selectedFolder={selectedFolder} />
     </div>
   );
 };

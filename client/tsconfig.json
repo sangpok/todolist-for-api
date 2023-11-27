@@ -24,9 +24,11 @@
     "baseUrl": ".",
     "paths": {
       "@API/*": ["src/API/*"],
+      "@Constants/*": ["src/Constants/*"],
       "@Hooks/*": ["src/Hooks/*"],
       "@Pages/*": ["src/Pages/*"],
       "@Store/*": ["src/Store/*"],
+      "@Types/*": ["src/Types/*"],
       "@Utils/*": ["src/Utils/*"],
       "@/*": ["src/*"]
     }

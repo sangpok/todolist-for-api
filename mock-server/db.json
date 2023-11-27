@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "bf3dea1f-382d-4061-af89-378be81bcdee",
-      "nickname": "가냘픈 강아지"
+      "nickname": "그래요"
     },
     {
       "id": "3c3ac7f5-bdfb-483a-9e9e-e00dc19455c6",
@@ -27,6 +27,10 @@
     {
       "id": "61320ab3-7f4b-430a-ae4b-dc9f4770cca0",
       "nickname": "스스러운 코끼리"
+    },
+    {
+      "id": "c5b09683-4d6b-4ad0-8842-1f0ce525340b",
+      "nickname": "뻘건 불여우"
     }
   ],
   "folders": [
@@ -55,16 +59,16 @@
       "createdAt": 1700908634231
     },
     {
-      "id": "996dc7d4-6b93-40a6-a0d9-a9fb6eba0693",
-      "userId": "bf3dea1f-382d-4061-af89-378be81bcdee",
-      "name": "안녕",
-      "createdAt": "2023-11-27T08:03:41.634Z"
+      "id": "6e18ea96-2b7d-454b-bb44-9c7009aaffa5",
+      "userId": "4e44eb80-8818-4f46-9723-fbb9f8d799e1",
+      "name": "회사",
+      "createdAt": 1701092774667
     },
     {
-      "id": "5236aef5-e401-40b9-a0d1-1c7ed4424b2e",
-      "userId": "bf3dea1f-382d-4061-af89-378be81bcdee",
-      "name": "회사",
-      "createdAt": "2023-11-27T08:07:27.868Z"
+      "id": "c04d2c55-1111-47ea-bbf2-338975a20380",
+      "userId": "4e44eb80-8818-4f46-9723-fbb9f8d799e1",
+      "name": "프로젝트",
+      "createdAt": 1701092776943
     }
   ],
   "todos": [
@@ -73,7 +77,7 @@
       "userId": "bf3dea1f-382d-4061-af89-378be81bcdee",
       "folderId": "03c1b658-8d9d-42b3-8c92-48934af1da6a",
       "content": "가냘픈 강아지 폴더A 할일1",
-      "completed": false,
+      "completed": true,
       "createdAt": 1700908514743
     },
     {
@@ -81,21 +85,23 @@
       "userId": "bf3dea1f-382d-4061-af89-378be81bcdee",
       "folderId": "03c1b658-8d9d-42b3-8c92-48934af1da6a",
       "content": "가냘픈 강아지 폴더A 할일2",
-      "completed": true,
+      "completed": false,
       "createdAt": 1700908580830
     },
     {
       "id": "986d028c-a475-4c82-9cb0-47ad99bbc24e",
       "userId": "bf3dea1f-382d-4061-af89-378be81bcdee",
+      "folderId": "14fac7b0-4665-44c3-b2b9-c1f98bee93fa",
       "content": "가냘픈 강아지 폴더B 할일1",
       "completed": true,
       "createdAt": 1700908674744
     },
     {
-      "id": "986d028c-a475-4c82-9cb0-47ad99bbc24e",
+      "id": "271a78b3-5a4b-4991-9f63-c26052e35e41",
       "userId": "bf3dea1f-382d-4061-af89-378be81bcdee",
+      "folderId": "14fac7b0-4665-44c3-b2b9-c1f98bee93fa",
       "content": "가냘픈 강아지 폴더B 할일2",
-      "completed": false,
+      "completed": true,
       "createdAt": 1700908679818
     },
     {
@@ -129,6 +135,22 @@
       "content": "힘찬 황소 폴더B 할일2",
       "completed": false,
       "createdAt": 1700908679818
+    },
+    {
+      "id": "3d7da02b-7762-43f3-bac2-d0752955e2d8",
+      "userId": "bf3dea1f-382d-4061-af89-378be81bcdee",
+      "folderId": "03c1b658-8d9d-42b3-8c92-48934af1da6a",
+      "content": "흐흐",
+      "completed": true,
+      "createdAt": 1701091475610
+    },
+    {
+      "id": "ff65731c-842b-45b6-b5e5-53798081834c",
+      "userId": "4e44eb80-8818-4f46-9723-fbb9f8d799e1",
+      "folderId": "6e18ea96-2b7d-454b-bb44-9c7009aaffa5",
+      "content": "안녕",
+      "completed": true,
+      "createdAt": 1701092779755
     }
   ]
 }

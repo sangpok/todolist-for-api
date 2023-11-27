@@ -1,27 +1,11 @@
-import { UserAuth } from '@/Store/UserAuthStore';
 import { v4 as uuid } from 'uuid';
 
 import * as Util from '@Utils/index';
 
-export type Todo = {
-  id: string;
-  content: string;
-  completed: boolean;
-  createdAt: Date;
-};
+import { UserAuth } from '@Types/UserAuth';
+import { Todo, TodoFolder } from '@Types/Todo';
 
-export type TodoFolder = {
-  id: string;
-  userId: string;
-  name: string;
-  createdAt: Date;
-};
-
-const API_URL = 'http://localhost:3001';
-
-const END_POINTS = {
-  USERS: '/users',
-} as const;
+import { API_URL, END_POINTS } from '@Constants/index';
 
 const Fetcher = {
   GET: <T>(endpoint: string) =>
@@ -38,7 +22,8 @@ const Fetcher = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formdata),
     }).then((res) => res.json() as Promise<T>),
-  // DELETE:
+  DELETE: <T>(endpoint: string) =>
+    fetch(`${API_URL}${endpoint}`, { method: 'DELETE' }).then((res) => res.json() as Promise<T>),
 };
 
 export const getUserList = () => Fetcher.GET<UserAuth[]>(`${END_POINTS.USERS}`);
@@ -51,7 +36,7 @@ export const getUserList = () => Fetcher.GET<UserAuth[]>(`${END_POINTS.USERS}`);
 export const createAccount = () =>
   Fetcher.POST<UserAuth>(`${END_POINTS.USERS}`, { id: uuid(), nickname: Util.createRandomName() });
 
-export const changeNickname = ({ userAuth, nickname }: { userAuth: UserAuth; nickname: string }) =>
+export const renameNickname = ({ userAuth, nickname }: { userAuth: UserAuth; nickname: string }) =>
   Fetcher.PATCH<UserAuth>(`${END_POINTS.USERS}/${userAuth.id}`, { nickname });
 
 export const getTodoFolderList = (userAuth: UserAuth) =>
@@ -68,5 +53,97 @@ export const createTodoFolder = ({
     id: uuid(),
     userId: userAuth.id,
     name: folderName,
-    createdAt: new Date(),
+    createdAt: Number(new Date()),
   });
+
+export const renameTodoFolder = ({
+  userAuth,
+  todoFolder,
+  newFolderName,
+}: {
+  userAuth: UserAuth;
+  todoFolder: TodoFolder;
+  newFolderName: string;
+}) =>
+  Fetcher.PATCH<TodoFolder>(`${END_POINTS.USERS}/${userAuth.id}/folders/${todoFolder.id}`, {
+    name: newFolderName,
+  });
+
+export const deleteTodoFolder = ({
+  userAuth,
+  todoFolder,
+}: {
+  userAuth: UserAuth;
+  todoFolder: TodoFolder;
+}) => Fetcher.DELETE<TodoFolder>(`${END_POINTS.USERS}/${userAuth.id}/folders/${todoFolder.id}`);
+
+export const getTodoList = ({
+  userAuth,
+  todoFolder,
+}: {
+  userAuth: UserAuth;
+  todoFolder: TodoFolder;
+}) => Fetcher.GET<Todo[]>(`${END_POINTS.USERS}/${userAuth.id}/folders/${todoFolder.id}/todos`);
+
+export const createTodo = ({
+  userAuth,
+  todoFolder,
+  todoContent,
+}: {
+  userAuth: UserAuth;
+  todoFolder: TodoFolder;
+  todoContent: string;
+}) =>
+  Fetcher.POST<Todo>(`${END_POINTS.USERS}/${userAuth.id}/folders/${todoFolder.id}/todos`, {
+    id: uuid(),
+    userId: userAuth.id,
+    folderId: todoFolder.id,
+    content: todoContent,
+    completed: false,
+    createdAt: Number(new Date()),
+  });
+
+export const toggleTodo = ({
+  userAuth,
+  todoFolder,
+  todo,
+  completed,
+}: {
+  userAuth: UserAuth;
+  todoFolder: TodoFolder;
+  todo: Todo;
+  completed: boolean;
+}) =>
+  Fetcher.PATCH<Todo>(
+    `${END_POINTS.USERS}/${userAuth.id}/folders/${todoFolder.id}/todos/${todo.id}`,
+    { completed }
+  );
+
+export const renameTodo = ({
+  userAuth,
+  todoFolder,
+  todo,
+  content,
+}: {
+  userAuth: UserAuth;
+  todoFolder: TodoFolder;
+  todo: Todo;
+  content: string;
+}) =>
+  Fetcher.PATCH<Todo>(
+    `${END_POINTS.USERS}/${userAuth.id}/folders/${todoFolder.id}/todos/${todo.id}`,
+    { content }
+  );
+
+export const deleteTodo = ({
+  userAuth,
+  todoFolder,
+  todo,
+}: {
+  userAuth: UserAuth;
+  todoFolder: TodoFolder;
+  todo: Todo;
+}) =>
+  Fetcher.DELETE<TodoFolder>(
+    `${END_POINTS.USERS}/${userAuth.id}/folders/${todoFolder.id}/todos/${todo.id}`
+  );

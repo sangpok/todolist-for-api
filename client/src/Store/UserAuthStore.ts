@@ -1,7 +1,4 @@
-export type UserAuth = {
-  id: string;
-  nickname: string;
-};
+import { UserAuth } from '@Types/UserAuth';
 
 let userAuth: UserAuth | null = null;
 

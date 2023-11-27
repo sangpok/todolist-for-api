@@ -1,5 +1,5 @@
-import { useChangeNickname } from '@Hooks/index';
-import { UserAuth } from '@Store/UserAuthStore';
+import { useRenameNickname } from '@Hooks/index';
+import { UserAuth } from '@Types/UserAuth';
 
 const UserInfoPresenter = ({
   id,
@@ -33,7 +33,7 @@ const ButtonPresenter = ({ isLoading, onClick }: { isLoading: boolean; onClick: 
 };
 
 const UserInfoView = ({ userAuth }: { userAuth: UserAuth }) => {
-  const { mutate, isLoading } = useChangeNickname();
+  const { mutate, isPending } = useRenameNickname();
 
   const handleChangeNickname = () => {
     const newNickname = prompt('바꿀 닉네임을 입력해주세요');
@@ -48,8 +48,8 @@ const UserInfoView = ({ userAuth }: { userAuth: UserAuth }) => {
   return (
     <div>
       <h2>유저 정보</h2>
-      <UserInfoPresenter {...userAuth} isLoading={isLoading} />
-      <ButtonPresenter isLoading={isLoading} onClick={handleChangeNickname} />
+      <UserInfoPresenter {...userAuth} isLoading={isPending} />
+      <ButtonPresenter isLoading={isPending} onClick={handleChangeNickname} />
     </div>
   );
 };

@@ -1,13 +1,14 @@
-import { useCreateAccount, useUserList } from '@/Hooks';
-import { UserAuth, UserAuthStore } from '@/Store/UserAuthStore';
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { useCreateAccount, useUserList } from '@Hooks/index';
+import { UserAuthStore } from '@Store/UserAuthStore';
+import { UserAuth } from '@Types/UserAuth';
 
 const LandingPage = () => {
   const navigate = useNavigate();
 
   const { data: userList, isLoading } = useUserList();
-  const userCreateMutation = useCreateAccount();
+  const createUserMutation = useCreateAccount();
 
   const initialLoading = isLoading;
   const hasNoUserList = !initialLoading && userList && userList.length === 0;
@@ -19,7 +20,7 @@ const LandingPage = () => {
   };
 
   const handleCreateAccountClick = () => {
-    userCreateMutation.mutate();
+    createUserMutation.mutate();
   };
 
   return (
@@ -40,8 +41,8 @@ const LandingPage = () => {
       </div>
 
       <div>
-        <button onClick={handleCreateAccountClick} disabled={userCreateMutation.isLoading}>
-          {userCreateMutation.isLoading ? '만드는 중...' : '새로 만들고 시작하기'}
+        <button onClick={handleCreateAccountClick} disabled={createUserMutation.isPending}>
+          {createUserMutation.isPending ? '만드는 중...' : '새로 만들고 시작하기'}
         </button>
       </div>
     </div>
